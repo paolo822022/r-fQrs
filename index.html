@@ -1,16 +1,20 @@
 <!DOCTYPE html>
-<html Lang= “en”>
-  <head>
-    <meta charset="utf-8">
-    <title> </title>
-
-<style>
-  body{
- background-color: lightblue;
- text-align: center;
-
-} 
-
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+      body {
+        background-color: lightblue;
+        text-align: center;
+      }
+      
+      .lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
 .lds-ring div {
   box-sizing: border-box;
   display: block;
@@ -41,34 +45,32 @@
   }
 }
 
-</style>
-
-
-  </head>
-  <body>
-    <script>
-	Const AS_URL_BASE = “”;
-
-Var url = document.location.href;
-Var k = url.sudstr(url.lastIndexOf(“k=”)+2);
-
-
-If(k){
- Fetch(AS_URL_BASE+’?K=’ +K)
-.then(r = > r.text())
-.then((r) = >{
-Console.log(r);
-//document.write(r);
-If(r){
-Document.location.replace(r);
-}
-})
-.catch(err = > console.log(err))
-}
-
+  </style>
+</head>
+<body>
+  <script>
+    const AS_URL_BASE = "https://script.google.com/macros/s/AKfycbxmpr9PrhxFm-BDq7RZ1X6ytsxBC-m72oMHNnaJlEJ33Sm1MQsPZtcgItdbsIhMYSgYdA/exec";
+    
+    var url = document.location.href;
+    var k = url.substr(url.lastIndexOf("k=")+2);
+    
+    if(k){
+      fetch(AS_URL_BASE+'?k='+k)
+      .then(r => r.text())
+      .then((r) => {
+        console.log(r);
+        //document.write(r);
+        if(r){
+          document.location.replace(r);
+        }
+      })
+      .catch(err => console.log(err))
+    }
 
   </script>
-<dic class=”lds-ring”> <div></div><div></div><div></div><div></div></div>
-
-  </body>
+  
+  <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+  
+  
+</body>
 </html>
